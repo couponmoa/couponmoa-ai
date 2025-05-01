@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
 import java.util.List;
 
-@RestController("/api/v1/coupon/recommend")
+@RestController("/api/v1/coupon/recommend-ai")
 @RequiredArgsConstructor
 public class CouponRecommendController {
 
@@ -18,7 +17,7 @@ public class CouponRecommendController {
 
     // coupon 서버에서 실행하는 코드
     @PostMapping
-    public List<Long> recommend(@RequestBody RecommendRequest request) throws IOException {
+    public List<Long> recommend(@RequestBody RecommendRequest request) {
         return aiRecommendationService.recommendCouponIds(request);
     }
 }
